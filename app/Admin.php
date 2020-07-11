@@ -17,4 +17,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected function getUsernameAttribute($value)
+    {
+        return ucwords($value);
+    } // end of get uppercase username
 }

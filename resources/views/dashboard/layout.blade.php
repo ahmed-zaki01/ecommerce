@@ -1,5 +1,5 @@
-@include('dashboard.inc.header')
-@include('dashboard.inc.aside')
+@include('dashboard.inc._header')
+@include('dashboard.inc._aside')
 
 @include('partials._session')
 <!-- Content Wrapper. Contains page content -->
@@ -8,4 +8,4 @@
 </div>
 <!-- /.content-wrapper -->
 
-@include('dashboard.inc.footer')
+@include('dashboard.inc._footer')

@@ -26,13 +26,17 @@
     <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/summernote/summernote-bs4.css">
     <!-- Noty -->
     <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/noty/noty.min.css">
+    <!-- custom style -->
+    <link rel="stylesheet" href="{{asset('dashboard/dist')}}/css/style.css">
     <!-- Noty -->
     <script src="{{asset('dashboard/plugins')}}/noty/noty.min.js"></script>
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
