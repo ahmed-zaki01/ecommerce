@@ -38,34 +38,6 @@ class AdminDataTable extends DataTable
     }
 
 
-    public static function translate()
-    {
-        return [
-            'sEmptyTable' => trans('site.datatable.sEmptyTable'),
-            'sInfo' => trans('site.datatable.sInfo'),
-            'sInfoEmpty' => trans('site.datatable.sInfoEmpty'),
-            'sInfoFiltered' => trans('site.datatable.sInfoFiltered'),
-            'sInfoPostFix' => trans('site.datatable.sInfoPostFix'),
-            'sInfoThousands' => trans('site.datatable.sInfoThousands'),
-            'sLengthMenu' => trans('site.datatable.sLengthMenu'),
-            'sLoadingRecords' => trans('site.datatable.sLoadingRecords'),
-            'sProcessing' => trans('site.datatable.sProcessing'),
-            'sSearch' => trans('site.datatable.sSearch'),
-            'sZeroRecords' => trans('site.datatable.sZeroRecords'),
-            'oPaginate' => [
-                'sFirst' => trans('site.datatable.sFirst'),
-                'sPrevious' => trans('site.datatable.sPrevious'),
-                'sNext' => trans('site.datatable.sNext'),
-                'sLast' => trans('site.datatable.sLast'),
-            ],
-            'oAria' => [
-                'sSortAscending' => trans('site.datatable.sSortAscending'),
-                'sSortDescending' => trans('site.datatable.sSortDescending'),
-            ],
-
-        ];
-    } // end of table translation
-
     /**
      * Optional method if you want to use html builder.
      *
@@ -79,12 +51,16 @@ class AdminDataTable extends DataTable
             ->minifiedAjax()
             ->dom('Bfrtip')
             ->orderBy(1)
-            ->buttons(['create', 'export', 'print', 'reset', 'reload'])
+            ->buttons([
+                ['extend' => 'create', 'className' => ' mb-2', 'text' => '<i class="fas fa-plus mx-1"></i>' . trans('site.datatable.create')],
+                ['extend' => 'export', 'className' => 'btn btn-info mb-2', 'text' => trans('site.datatable.export')],
+                ['extend' => 'print', 'className' => 'btn btn-primary mb-2', 'text' => '<i class="fas fa-print mx-1"></i>' . trans('site.datatable.print')],
+                ['extend' => 'reload', 'className' => 'btn btn-info mb-2', 'text' => '<i class="fas fa-sync-alt mx-1"></i>' .  trans('site.datatable.reload')],
+                ['extend' => 'reset', 'className' => 'btn btn-primary mb-2', 'text' => trans('site.datatable.reset')],
+            ])
             ->parameters([
                 'dom' => 'Blfrtip',
-                'lengthMenu' => [[10, 25, 50, 100], [10, 25, 50, 100]],
-
-
+                'lengthMenu' => [[10, 25, 50, -1], [10, 25, 50, trans('site.datatable.all')]],
             ])
             ->initComplete(
                 "function () {
@@ -98,7 +74,7 @@ class AdminDataTable extends DataTable
                     });
                 }"
             )
-            ->language(self::translate());
+            ->language(translate());
     }
 
     /**
@@ -109,21 +85,44 @@ class AdminDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
-            Column::make('username'),
-            Column::make('email'),
-            Column::make('created_at'),
-            // Column::make('created_at'),
-            Column::computed('edit')
-                ->exportable(false)
-                ->printable(false)
-                ->searchable(false)
-                ->addClass('text-center'),
-            Column::computed('delete')
-                ->exportable(false)
-                ->printable(false)
-                ->searchable(false)
-                ->addClass('text-center'),
+            [
+                'name' => 'id',
+                'data' => 'id',
+                'title' => trans('site.id')
+            ],
+            [
+                'name' => 'username',
+                'data' => 'username',
+                'title' => trans('site.username')
+            ],
+            [
+                'name' => 'email',
+                'data' => 'email',
+                'title' => trans('site.email')
+            ],
+            [
+                'name' => 'created_at',
+                'data' => 'created_at',
+                'title' => trans('site.created_at')
+            ],
+            [
+                'name' => 'edit',
+                'data' => 'edit',
+                'title' => trans('site.edit'),
+                'exportable' => false,
+                'printable' => false,
+                'searchable' => false,
+                'orderable' => false
+            ],
+            [
+                'name' => 'delete',
+                'data' => 'delete',
+                'title' => trans('site.delete'),
+                'exportable' => false,
+                'printable' => false,
+                'searchable' => false,
+                'orderable' => false
+            ],
         ];
     }
 

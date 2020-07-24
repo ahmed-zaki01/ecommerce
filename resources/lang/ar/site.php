@@ -13,6 +13,12 @@ return [
     'admins' => 'الموظفين',
     'new_admin' => 'إضافة موظف',
     'view_admins' => 'عرض الموظفين',
+    'id' => '#',
+    'email' => 'البريد الالكتروني',
+    'username' => 'الإسم',
+    'created_at' => 'انشيء في',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
 
     'datatable' => [
         'create_btn' => 'إضافة',
@@ -33,5 +39,11 @@ return [
         'sSortDescending' => 'ترتيب تصاعدي',
         'sInfoPostFix' => '',
         'sInfoThousands' => '',
+        'create' => 'إضافة',
+        'export' => 'تصدير',
+        'print' => 'طباعة',
+        'reload' => 'إعادة تحميل',
+        'reset' => 'إعادة تعيين',
+        'all' => 'الكل'
     ]
 ];

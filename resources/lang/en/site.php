@@ -13,6 +13,12 @@ return [
     'admins' => 'Admins',
     'new_admin' => 'New Admin',
     'view_admins' => 'View Admins',
+    'id' => '#',
+    'email' => 'Email',
+    'username' => 'Username',
+    'created_at' => 'Created At',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
 
     'datatable' => [
         'sEmptyTable' =>    'There is no data found!',
@@ -32,5 +38,11 @@ return [
         'sSortDescending' => 'Sort Descending',
         'sInfoPostFix' => '',
         'sInfoThousands' => '',
+        'create' => 'Create',
+        'export' => 'Export',
+        'print' => 'Print',
+        'reload' => 'Reload',
+        'reset' => 'Reset',
+        'all' => 'All',
     ]
 ];

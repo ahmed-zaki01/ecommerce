@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="utf-8">
@@ -13,9 +13,25 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
+    @if (app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{asset('dashboard/dist')}}/css/rtl/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('dashboard/dist')}}/css/rtl/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+
+    @else
     <link rel="stylesheet" href="{{asset('dashboard/dist')}}/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @endif
     {{-- <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('dashboard/plugins')}}/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -40,9 +56,6 @@
     <link rel="stylesheet" href="{{asset('dashboard/dist')}}/css/style.css">
     <!-- Noty -->
     <script src="{{asset('dashboard/plugins')}}/noty/noty.min.js"></script>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     {{-- styles stack within laravel --}}
     @stack('styles')
@@ -84,7 +97,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
 
-                        <span class="" style="cursor: pointer;">Languages</span>
+                        <span class="" style="cursor: pointer;"><i class="fas fa-globe"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
 
