@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{ route('dashboard.admins.create') }}" class="nav-link">
                                 <i class="fas fa-arrow-right nav-icon"></i>
                                 <p>@lang('site.new_admin')</p>
                             </a>

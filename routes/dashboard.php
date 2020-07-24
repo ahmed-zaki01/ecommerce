@@ -4,12 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
-    // set dashboard language
-    Route::get('/{lang}', function ($lang) {
-        session()->has('lang') ? session()->forget('lang') : '';
-        $lang == 'ar' ? session()->put('lang', 'ar') : session()->put('lang', 'en');
-        return back();
-    })->name('get_lang');
 
     // login routes
     Route::get('/login', 'AdminAuthController@login')->name('login');
@@ -31,4 +25,11 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
         // admins routes
         Route::resource('admins', 'AdminController')->except('show');
     });
+
+    // set dashboard language
+    Route::get('/{lang}', function ($lang) {
+        session()->has('lang') ? session()->forget('lang') : '';
+        $lang == 'ar' ? session()->put('lang', 'ar') : session()->put('lang', 'en');
+        return back();
+    })->name('get_lang');
 });
