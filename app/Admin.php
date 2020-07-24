@@ -18,8 +18,13 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected function getUsernameAttribute($value)
+    public function getUsernameAttribute($value)
     {
         return ucwords($value);
     } // end of get uppercase username
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date("Y-m-d H:i:s", strtotime($value));
+    }
 }

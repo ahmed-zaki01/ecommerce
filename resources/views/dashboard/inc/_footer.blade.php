@@ -21,7 +21,9 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('dashboard/plugins')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
+<!-- AdminLTE App -->
+<script src="{{asset('dashboard/dist')}}/js/adminlte.min.js"></script>
+{{-- <!-- ChartJS -->
 <script src="{{asset('dashboard/plugins')}}/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <script src="{{asset('dashboard/plugins')}}/sparklines/sparkline.js"></script>
@@ -39,8 +41,17 @@
 <script src="{{asset('dashboard/plugins')}}/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('dashboard/plugins')}}/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('dashboard/dist')}}/js/adminlte.min.js"></script>
+<!-- dataTbles script --> --}}
+<script src="{{asset('dashboard/plugins')}}/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('dashboard/plugins')}}/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset('dashboard/plugins')}}/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{asset('dashboard/plugins')}}/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+
+
+
+
+@stack('scripts')
 
 </body>
 
