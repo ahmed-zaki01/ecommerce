@@ -21,9 +21,10 @@ class AdminDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('edit', 'dashboard.admins.edit')
-            ->addColumn('delete', 'dashboard.admins.delete')
-            ->rawColumns(['edit', 'delete']);
+            ->addColumn('edit', 'dashboard.admins.buttons.edit')
+            ->addColumn('delete', 'dashboard.admins.buttons.delete')
+            ->addColumn('check', 'dashboard.admins.buttons.check')
+            ->rawColumns(['edit', 'delete', 'check']);
     }
 
     /**
@@ -56,7 +57,8 @@ class AdminDataTable extends DataTable
                 ['extend' => 'export', 'className' => 'btn btn-info mb-2', 'text' => trans('site.datatable.export')],
                 ['extend' => 'print', 'className' => 'btn btn-primary mb-2', 'text' => '<i class="fas fa-print mx-1"></i>' . trans('site.datatable.print')],
                 ['extend' => 'reload', 'className' => 'btn btn-info mb-2', 'text' => '<i class="fas fa-sync-alt mx-1"></i>' .  trans('site.datatable.reload')],
-                ['extend' => 'reset', 'className' => 'btn btn-primary mb-2', 'text' => trans('site.datatable.reset')],
+                ['extend' => 'reset', 'className' => 'btn btn-primary mb-2', 'text' => '<i class="fas fa-redo mx-1"></i>' . trans('site.datatable.reset')],
+                ['className' => 'btn btn-danger delete-btn mb-2', 'text' => '<i class="fas fa-trash mx-1"></i>' . trans('site.datatable.delete_all')],
             ])
             ->parameters([
                 'dom' => 'Blfrtip',
@@ -64,7 +66,7 @@ class AdminDataTable extends DataTable
             ])
             ->initComplete(
                 "function () {
-                    this.api().columns([0, 1, 2, 3]).every(function () {
+                    this.api().columns([1, 2, 3]).every(function () {
                         var column = this;
                         var input = document.createElement(\"input\");
                         $(input).appendTo($(column.footer()).empty())
@@ -85,6 +87,15 @@ class AdminDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            [
+                'name' => 'check',
+                'data' => 'check',
+                'title' => '<input type="checkbox" class="check-all">',
+                'exportable' => false,
+                'printable' => false,
+                'searchable' => false,
+                'orderable' => false
+            ],
             [
                 'name' => 'id',
                 'data' => 'id',

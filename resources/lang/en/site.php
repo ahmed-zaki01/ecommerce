@@ -19,6 +19,10 @@ return [
     'created_at' => 'Created At',
     'edit' => 'Edit',
     'delete' => 'Delete',
+    'delete_all_text_modal' => 'Are you sure to delete all the records!',
+    'check_records' => 'Please check some records!',
+    'confirm' => 'Confirm',
+    'close' => 'Close',
 
     'datatable' => [
         'sEmptyTable' =>    'There is no data found!',
@@ -44,5 +48,6 @@ return [
         'reload' => 'Reload',
         'reset' => 'Reset',
         'all' => 'All',
+        'delete_all' => 'Delete All',
     ]
 ];
